@@ -20,7 +20,7 @@ function game()
 		computerMove = getComputerMove();
 		if (computerMove === "")
 			return;
-			
+
 		console.log(`Player: ${playerMove}, Computer: ${computerMove}\n`);
 
 		roundResult = getRoundResult(playerMove, computerMove);
@@ -112,7 +112,7 @@ function getRoundResult(playerMove, computerMove)
 	if (playerMove === computerMove) //this round is a tie
 		return -1;
 	
-	//rock beats scissors, loses to any other possibility
+	//rock beats scissors, loses to any other possibility (ties already taken care of above)
 	if (playerMove[0] === 'r') 
 		roundResult = (computerMove[0] === 's') ? 1 : 0;
 
@@ -152,7 +152,6 @@ function printRoundResult(roundResult, playerMove, computerMove)
 		0 if the computer won
 		1 if the player won
 */
-
 function getGameResult(playerPoints, computerPoints) 
 {
 	let gameResult;
@@ -167,6 +166,7 @@ function getGameResult(playerPoints, computerPoints)
 	return gameResult;
 }
 
+//simply prints the total scores and the overall result
 function printGameResult(gameResult, playerPoints, computerPoints) 
 {
 	let endMsg;
